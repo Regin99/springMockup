@@ -27,6 +27,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 .nav_item span {
@@ -140,7 +141,7 @@
   .header_nav {
     display: none;
   }
-  .hamburger {
+  .hamburger_container {
     display: block;
   }
 }

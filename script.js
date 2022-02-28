@@ -1,3 +1,20 @@
+const headerNav = document.querySelector("#header_nav");
+headerNav.classList.add("sidebar");
+const hamburgerClick = () => {
+  headerNav.classList.toggle("isOpen");
+  const navCloseButton = document.createElement("img");
+  navCloseButton.classList.add("nav_close_button");
+  navCloseButton.src =
+    "https://cdn3.iconfinder.com/data/icons/lucky-stroke/512/Cancel_circle_close_cross_delete_exit_stopicon-512.png";
+  headerNav.appendChild(navCloseButton);
+  navCloseButton.addEventListener("click", () => {
+    headerNav.classList.toggle("isOpen");
+    navCloseButton.removeEventListener("click", navCloseButton);
+    headerNav.removeChild(navCloseButton);
+  });
+};
+
+//---------------------------------------------------
 const projectsArray = [
   {
     title: "Spring Boot",

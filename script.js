@@ -56,3 +56,33 @@ projectsArray.forEach((project) => {
   const projectElement = createProject(project);
   projectsContainer.appendChild(projectElement);
 });
+
+// --------------------------------------------------
+const noResults = document.createElement("h3");
+noResults.innerText = "No results";
+noResults.style.display = "none";
+projectsContainer.appendChild(noResults);
+
+let timer;
+const filterList = () => {
+  clearTimeout(timer);
+  timer = setTimeout(() => {
+    const projectSearch = document.querySelector("#project_search");
+    const filter = projectSearch.value.toUpperCase();
+    const projectList = Array.from(document.querySelectorAll(".main_block"));
+    projectList.forEach((project) => {
+      const title = project.querySelector("h3").innerText.toUpperCase();
+      const description = project.querySelector("p").innerText.toUpperCase();
+      if (title.indexOf(filter) > -1 || description.indexOf(filter) > -1) {
+        project.style.display = "";
+      } else {
+        project.style.display = "none";
+      }
+    });
+    if (projectList.every((project) => project.style.display === "none")) {
+      noResults.style.display = "";
+    } else {
+      noResults.style.display = "none";
+    }
+  }, 300);
+};

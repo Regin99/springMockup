@@ -85,6 +85,9 @@
 /* -------------- */
 .content_container {
   background-color: #ebf2f2;
+  display: flex;
+  min-height: 200px;
+  flex-direction: column;
 }
 .main {
   display: flex;
@@ -102,6 +105,13 @@
   margin-bottom: 80px;
   font-size: 1.5rem;
   line-height: 1.7em;
+}
+.search {
+  align-self: center;
+  outline: none;
+  margin-top: 25px;
+  line-height: 1.5em;
+  width: 200px;
 }
 .main_container {
   display: flex;

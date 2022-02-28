@@ -56,6 +56,88 @@ projectsArray.forEach((project) => {
   const projectElement = createProject(project);
   projectsContainer.appendChild(projectElement);
 });
+//---------------------------------------------------
+const navItems = [
+  {
+    title: "Why Spring",
+    childrens: [
+      "Overview",
+      "Microservices",
+      "Reactive",
+      "Event Driven",
+      "Cloud",
+      "Web Applications",
+      "Serverless",
+      "Batch",
+    ],
+  },
+  {
+    title: "Learn",
+    childrens: ["Overview", "Quickstart", "Guides", "Blog"],
+  },
+  {
+    title: "Projects",
+    childrens: [
+      "Overview",
+      "Spring Boot",
+      "Spring Framework",
+      "Spring Cloud",
+      "Spring Cloud Data Flow",
+      "Spring Data",
+      "Spring Integration",
+      "Spring Batch",
+      "Spring Security",
+      "View all projects",
+      "Development Tools",
+      "Spring Tools 4",
+      "Spring Initializr",
+    ],
+  },
+  {
+    title: "Training",
+  },
+  {
+    title: "Support",
+  },
+  {
+    title: "Community",
+    childrens: ["Overview", "Events", "Team"],
+  },
+];
+
+const navList = document.querySelector("#nav_list");
+
+const createNavItem = (item) => {
+  const navItem = document.createElement("li");
+  navItem.classList.add("nav_item");
+  const navTitle = document.createElement("span");
+  navTitle.innerText = item.title;
+  navItem.appendChild(navTitle);
+  if (item.childrens) {
+    const navArrow = document.createElement("div");
+    navArrow.classList.add("nav_arrow");
+    navItem.appendChild(navArrow);
+    const navDropdown = document.createElement("div");
+    navDropdown.classList.add("nav_dropdown");
+    const navDropdownList = document.createElement("ul");
+    item.childrens.forEach((child) => {
+      const navDropdownItem = document.createElement("li");
+      navDropdownItem.innerText = child;
+      navDropdownList.appendChild(navDropdownItem);
+    });
+    navDropdown.appendChild(navDropdownList);
+    navItem.appendChild(navDropdown);
+    if (navDropdown.parentElement.firstChild.innerText === "Community") {
+      navDropdown.classList.add("community");
+    }
+  }
+  return navItem;
+};
+
+navItems.forEach((item) => {
+  const navItem = createNavItem(item);
+  navList.appendChild(navItem);
+});
 
 // --------------------------------------------------
 const noResults = document.createElement("h3");

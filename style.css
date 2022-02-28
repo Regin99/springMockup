@@ -70,7 +70,7 @@
   opacity: 1;
   transition: all 0.3s ease-in;
 }
-#community {
+.community {
   right: 0;
 }
 .hamburger_container {

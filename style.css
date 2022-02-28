@@ -188,12 +188,12 @@
   }
   .nav_item span {
     color: #f2f2f2;
-    font-size: 64px;
+    font-size: 48px;
   }
   .nav_arrow {
     border-color: #f2f2f2;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
   }
   .nav_dropdown {
     width: 100%;
